@@ -1,12 +1,20 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { Button } from '../components/Button';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+import { PlantSelect } from './PlantSelect';
 
 export function Confirmation(){
+  const navigation = useNavigation();
+
+  function handleMoveOn() {
+    navigation.navigate('PlantSelect');
+  }
+
   return(
     <>
       <StatusBar barStyle='dark-content' backgroundColor='white'/>
@@ -20,6 +28,7 @@ export function Confirmation(){
           <View style={styles.footer}>
             <Button 
               title="Começar"
+              onPress={handleMoveOn}
             />
           </View>
         </View>
